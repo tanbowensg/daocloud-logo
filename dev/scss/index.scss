@@ -1,0 +1,74 @@
+#div {
+	/*perspective: 300px;*/
+	/*perspective-origin: 50% 50%;*/
+}
+
+#side-top {
+	width: 600px;
+	height: 600px;
+	position: relative;
+	/*background-color: black;*/
+	transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg) rotate(-45deg) scaleX(0.5) scaleY(0.5);
+}
+
+#pic1 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 150px;
+	height: 350px;
+	background-color: #0fd15d;
+}
+
+#pic2 {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 350px;
+	height: 350px;
+	background-color: #0fd15d;
+}
+
+#pic3 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 350px;
+	height: 150px;
+	background-color: #0fd15d;
+}
+
+#side-left {
+	width: 600px;
+	height: 600px;
+	position: absolute;
+	/*background-color: black;*/
+	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotate(0deg) scaleX(0.5) scaleY(0.5);
+}
+
+#pic-left-1 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 350px;
+	height: 150px;
+	background-color: #0fd15d;
+}
+
+#pic-left-2 {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 350px;
+	height: 350px;
+	background-color: #0fd15d;
+}
+
+#pic-left-3 {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 150px;
+	height: 350px;
+	background-color: #0fd15d;
+}
