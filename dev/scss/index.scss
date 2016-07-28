@@ -1,74 +1,68 @@
+$color: #0fd15d;
+$side-width: 600px;
+$a: 150px;
+$b: 350px;
+
 #div {
 	/*perspective: 300px;*/
 	/*perspective-origin: 50% 50%;*/
-}
+	.side {
+		width: $side-width;
+		height: $side-width;
+		position: absolute;
+		&#side-top {
+			/*background-color: black;*/
+			transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg) rotate(-45deg) scaleX(0.5) scaleY(0.5);
+		}
+		&#side-left {
+			/*background-color: black;*/
+			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotate(0deg) scaleX(0.5) scaleY(0.5);
+		}
+	}
+	.pic {
+		position: absolute;
+		background-color: $color;
+		&#pic1 {
+			left: 0;
+			top: 0;
+			width: $a;
+			height: $b;
+		}
 
-#side-top {
-	width: 600px;
-	height: 600px;
-	position: relative;
-	/*background-color: black;*/
-	transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg) rotate(-45deg) scaleX(0.5) scaleY(0.5);
-}
+		&#pic2 {
+			right: 0;
+			top: 0;
+			width: $b;
+			height: $b;
+		}
 
-#pic1 {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 150px;
-	height: 350px;
-	background-color: #0fd15d;
-}
+		&#pic3 {
+			bottom: 0;
+			right: 0;
+			width: $b;
+			height: $a;
+		}
 
-#pic2 {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 350px;
-	height: 350px;
-	background-color: #0fd15d;
-}
 
-#pic3 {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 350px;
-	height: 150px;
-	background-color: #0fd15d;
-}
+		&#pic-left-1 {
+			left: 0;
+			top: 0;
+			width: $b;
+			height: $a;
+		}
 
-#side-left {
-	width: 600px;
-	height: 600px;
-	position: absolute;
-	/*background-color: black;*/
-	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotate(0deg) scaleX(0.5) scaleY(0.5);
-}
+		&#pic-left-2 {
+			left: 0;
+			bottom: 0;
+			width: $b;
+			height: $b;
+		}
 
-#pic-left-1 {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 350px;
-	height: 150px;
-	background-color: #0fd15d;
-}
-
-#pic-left-2 {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 350px;
-	height: 350px;
-	background-color: #0fd15d;
-}
-
-#pic-left-3 {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	width: 150px;
-	height: 350px;
-	background-color: #0fd15d;
+		&#pic-left-3 {
+			right: 0;
+			bottom: 0;
+			width: $a;
+			height: $b;
+		}
+	}
 }
