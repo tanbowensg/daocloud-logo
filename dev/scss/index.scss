@@ -6,7 +6,7 @@ $canvas-width: (300px - $grid-border-width) * $scale;
 $a: $canvas-width * 0.31 * $scale;
 $b: $canvas-width * 0.52 * $scale;
 
-$rotateX-deg: -30deg;
+$rotateX-deg: -33deg;
 
 body {
 	background: #58a;
@@ -18,16 +18,26 @@ body {
 	10px 10px, 10px 10px;
 }
 
+#daocloud-logo {
+	position: absolute;
+	width: $canvas-width;
+	height: $canvas-width;
+	top: 100px;
+	left: 100px;
+}
+
 .scene {
 	width: $canvas-width;
 	height: $canvas-width;
-	perspective: 1200px;
+	perspective: $canvas-width * 4;
+	perspective-origin: 50% 30%;
 	position: absolute;
 	top: 100px;
 	left: 100px;
 }
 
 .cube {
+	// opacity: 0.5;
 	position: absolute;
 	width: $canvas-width;
 	height: $canvas-width;
@@ -40,82 +50,62 @@ body {
 	width: $canvas-width;
 	height: $canvas-width;
 	background-color: $bg-color;
-	&.top {
-		.pic {
-			position: absolute;
-			background-color: $color;
-			&#pic1 {
-				left: 0;
-				top: 0;
-				width: $a;
-				height: $b;
-			}
-
-			&#pic2 {
-				right: 0;
-				top: 0;
-				width: $b;
-				height: $b;
-			}
-
-			&#pic3 {
-				bottom: 0;
-				right: 0;
-				width: $b;
-				height: $a;
-			}
+	.pic {
+		position: absolute;
+		background-color: $color;
+		&#pic-top-1 {
+			left: 0;
+			top: 0;
+			width: $a;
+			height: $b;
 		}
-	}
-	&.right {
-		.pic {
-			position: absolute;
-			background-color: $color;
-			&#pic-right-1 {
-				left: 0;
-				top: 0;
-				width: $b;
-				height: $a;
-			}
-
-			&#pic-right-2 {
-				left: 0;
-				bottom: 0;
-				width: $b;
-				height: $b;
-			}
-
-			&#pic-right-3 {
-				bottom: 0;
-				right: 0;
-				width: $a;
-				height: $b;
-			}
+		&#pic-top-2 {
+			right: 0;
+			top: 0;
+			width: $b;
+			height: $b;
 		}
-	}
-	&.front {
-		.pic {
-			position: absolute;
-			background-color: $color;
-			&#pic-front-1 {
-				right: 0;
-				top: 0;
-				width: $b;
-				height: $a;
-			}
-
-			&#pic-front-2 {
-				right: 0;
-				bottom: 0;
-				width: $b;
-				height: $b;
-			}
-
-			&#pic-front-3 {
-				bottom: 0;
-				left: 0;
-				width: $a;
-				height: $b;
-			}
+		&#pic-top-3 {
+			bottom: 0;
+			right: 0;
+			width: $b;
+			height: $a;
+		}
+		&#pic-right-1 {
+			left: 0;
+			top: 0;
+			width: $b;
+			height: $a;
+		}
+		&#pic-right-2 {
+			left: 0;
+			bottom: 0;
+			width: $b;
+			height: $b;
+		}
+		&#pic-right-3 {
+			bottom: 0;
+			right: 0;
+			width: $a;
+			height: $b;
+		}
+		&#pic-front-1 {
+			right: 0;
+			top: 0;
+			width: $b;
+			height: $a;
+		}
+		&#pic-front-2 {
+			right: 0;
+			bottom: 0;
+			width: $b;
+			height: $b;
+		}
+		&#pic-front-3 {
+			bottom: 0;
+			left: 0;
+			width: $a;
+			height: $b;
 		}
 	}
 }
