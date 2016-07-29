@@ -1,7 +1,18 @@
 $color: #0fd15d;
-$side-width: 600px;
-$a: 150px;
-$b: 350px;
+$scale: 1;
+$side-width: 300px * $scale;
+$a: 100px * $scale;
+$b: 120px * $scale;
+
+body {
+	background: #58a;
+	background-image: linear-gradient(white 2px, transparent 0),
+        linear-gradient(90deg, white 2px, transparent 0),
+        linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
+        linear-gradient(90deg, hsla(0,0%,100%,.3) 1px, transparent 0);
+	background-size: 50px 50px, 50px 50px,
+        10px 10px, 10px 10px;
+}
 
 #div {
 	/*perspective: 300px;*/
@@ -12,11 +23,12 @@ $b: 350px;
 		position: absolute;
 		&#side-top {
 			/*background-color: black;*/
-			transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg) rotate(-45deg) scaleX(0.5) scaleY(0.5);
+			transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg) rotate(-45deg);
 		}
 		&#side-left {
 			/*background-color: black;*/
-			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotate(0deg) scaleX(0.5) scaleY(0.5);
+			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotate(0deg);
+
 		}
 	}
 	.pic {
