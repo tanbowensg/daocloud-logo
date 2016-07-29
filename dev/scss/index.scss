@@ -1,10 +1,18 @@
+@import url(math.scss);
+
 $color: #0fd15d;
 $scale: 1;
 $grid-border-width: 2px;
-$canvas-width: 600px - $grid-border-width;
-$side-width: 300px * $scale;
-$a: 100px * $scale;
-$b: 120px * $scale;
+$canvas-width: (600px - $grid-border-width) * $scale;
+$side-width: $canvas-width * $scale;
+$a: $canvas-width * 0.3 * $scale;
+$b: $canvas-width * 0.5 * $scale;
+
+$sqrt2: 1.414;
+$factor :(1.414 - 1) / 2;
+$top-rotateX-deg: 60deg;
+$top-offsetY: - ($side-width * (0.5 - $sqrt2 / 2 * sin($top-rotateX-deg)));
+
 
 body {
 	background: #58a;
