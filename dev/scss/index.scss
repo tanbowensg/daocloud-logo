@@ -1,17 +1,21 @@
-@import url(math.scss);
+@import "math";
 
 $color: #0fd15d;
 $scale: 1;
 $grid-border-width: 2px;
 $canvas-width: (600px - $grid-border-width) * $scale;
 $side-width: $canvas-width * $scale;
-$a: $canvas-width * 0.3 * $scale;
-$b: $canvas-width * 0.5 * $scale;
+$a: $canvas-width * 0.31 * $scale;
+$b: $canvas-width * 0.52 * $scale;
 
 $sqrt2: 1.414;
 $factor :(1.414 - 1) / 2;
-$top-rotateX-deg: 60deg;
-$top-offsetY: - ($side-width * (0.5 - $sqrt2 / 2 * sin($top-rotateX-deg)));
+$top-rotateX-deg: 66deg;
+// 这里菱形已经被scale(0.707)过了，所以他的对角线长度就是一半画布的边长
+$top-offsetY: - 0.5 * (1 - cos($top-rotateX-deg)) * $side-width;
+$left-offsetX: - 0.25 * $side-width;
+
+$left-offsetY: 0.5 * ( -1 + cos($top-rotateX-deg) * (1 + $sqrt2)) * $side-width;
 
 
 body {
@@ -42,20 +46,22 @@ main {
 }
 
 #logo-css {
-	/*perspective: 300px;*/
-	/*perspective-origin: 50% 50%;*/
+	// perspective: 600px;
+	// perspective-origin: 50% 50%;
+	width: $canvas-width;
+	height: $canvas-width;
 	.side {
 		width: $side-width;
 		height: $side-width;
 		position: absolute;
 		&#side-top {
-			/*background-color: black;*/
-			transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg) rotate(-45deg);
+			top: $top-offsetY;
+			transform: rotateX($top-rotateX-deg) rotateY(0deg) rotate(-45deg) scale(0.707);
 		}
 		&#side-left {
-			/*background-color: black;*/
-			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotate(0deg);
-
+			left: $left-offsetX;
+			top: $left-offsetY;
+			transform: rotateX(-$top-rotateX-deg) rotateY(-45deg) scaleX(0.707);
 		}
 	}
 	.pic {
