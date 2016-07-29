@@ -37,12 +37,12 @@ body {
 }
 
 .cube {
-	// opacity: 0.5;
 	position: absolute;
 	width: $canvas-width;
 	height: $canvas-width;
 	transform-style: preserve-3d;
 	transform: rotateX($rotateX-deg) rotateY(45deg);
+	// animation: rotate 2s ease-in infinite;
 }
 
 .side {
@@ -71,6 +71,24 @@ body {
 			width: $b;
 			height: $a;
 		}
+		&#pic-bottom-1 {
+			left: 0;
+			bottom: 0;
+			width: $a;
+			height: $a;
+		}
+		&#pic-bottom-2 {
+			right: 0;
+			bottom: 0;
+			width: $b;
+			height: $a;
+		}
+		&#pic-bottom-3 {
+			top: 0;
+			right: 0;
+			width: $a;
+			height: $b;
+		}
 		&#pic-right-1 {
 			left: 0;
 			top: 0;
@@ -88,6 +106,24 @@ body {
 			right: 0;
 			width: $a;
 			height: $b;
+		}
+		&#pic-left-1 {
+			left: 0;
+			top: 0;
+			width: $a;
+			height: $a;
+		}
+		&#pic-left-2 {
+			left: 0;
+			bottom: 0;
+			width: $a;
+			height: $b;
+		}
+		&#pic-left-3 {
+			top: 0;
+			right: 0;
+			width: $b;
+			height: $a;
 		}
 		&#pic-front-1 {
 			right: 0;
@@ -107,6 +143,24 @@ body {
 			width: $a;
 			height: $b;
 		}
+		&#pic-back-1 {
+			left: 0;
+			top: 0;
+			width: $a;
+			height: $a;
+		}
+		&#pic-back-2 {
+			right: 0;
+			top: 0;
+			width: $b;
+			height: $a;
+		}
+		&#pic-back-3 {
+			bottom: 0;
+			left: 0;
+			width: $a;
+			height: $b;
+		}
 	}
 }
 
@@ -118,4 +172,19 @@ body {
 }
 .front {
 	transform: translateZ($canvas-width / 2);
+}
+
+.bottom {
+	transform: translateY($canvas-width / 2) rotateX(90deg);
+}
+.left {
+	transform: translateX($canvas-width / 2) rotateY(90deg);
+}
+.back {
+	transform: translateZ(- $canvas-width / 2) ;
+}
+
+@keyframes rotate {
+	from { transform: rotateY(45deg) rotateX($rotateX-deg)}
+	to { transform: rotateY(45deg) rotateX($rotateX-deg)}
 }
