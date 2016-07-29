@@ -1,20 +1,39 @@
 $color: #0fd15d;
 $scale: 1;
+$grid-border-width: 2px;
+$canvas-width: 600px - $grid-border-width;
 $side-width: 300px * $scale;
 $a: 100px * $scale;
 $b: 120px * $scale;
 
 body {
 	background: #58a;
-	background-image: linear-gradient(white 2px, transparent 0),
-        linear-gradient(90deg, white 2px, transparent 0),
+	background-image: linear-gradient(white $grid-border-width, transparent 0),
+        linear-gradient(90deg, white $grid-border-width, transparent 0),
         linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
         linear-gradient(90deg, hsla(0,0%,100%,.3) 1px, transparent 0);
 	background-size: 50px 50px, 50px 50px,
         10px 10px, 10px 10px;
 }
 
-#div {
+main {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	width: $canvas-width;
+	height: $canvas-width;
+	border: $grid-border-width solid red;
+}
+
+#logo-svg {
+	display: block;
+	position: absolute;
+	opacity: 0.5;
+	width: $canvas-width;
+	height: $canvas-width;
+}
+
+#logo-css {
 	/*perspective: 300px;*/
 	/*perspective-origin: 50% 50%;*/
 	.side {
