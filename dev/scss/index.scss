@@ -8,9 +8,9 @@ $canvas-width: (300px - $grid-border-width) * $scale;
 $a: $canvas-width * 0.31 * $scale;
 $b: $canvas-width * 0.52 * $scale;
 $rotateX-deg: -33deg;
-$glow-height: 100px;
-$glow-duration: 1.5s;
-$glow-color: rgba(255,255,0,1);
+$glow-height: 150px;
+$glow-duration: 3s;
+$glow-color: rgba(255,255,0,0.7);
 
 #daocloud-logo {
 	position: absolute;
@@ -45,7 +45,13 @@ $glow-color: rgba(255,255,0,1);
 	background-color: $bg-color;
 	@keyframes breath {
 		from {
-			opacity : 0
+			opacity : 0;
+		}
+		45% {
+			opacity: 1;
+		}
+		55% {
+			opacity: 1;
 		}
 		to {
 			opacity: 1;
@@ -121,30 +127,40 @@ $glow-color: rgba(255,255,0,1);
 			bottom: 0;
 			width: $b;
 			height: $b;
+			@include glow(bottom, bottom, -45deg, 60deg);
+			@include glow-side($b, right, 20deg, 0deg);
 		}
 		&#pic-right-3 {
 			bottom: 0;
 			right: 0;
 			width: $a;
 			height: $b;
+			@include glow(bottom, bottom, -45deg, 60deg);
+			@include glow-side($b, left, 20deg, 0deg);
 		}
 		&#pic-front-1 {
 			right: 0;
 			top: 0;
 			width: $b;
 			height: $a;
+			@include glow(top, bottom, 45deg, 60deg);
+			@include glow-side($a, left, 20deg, 180deg);
 		}
 		&#pic-front-2 {
 			right: 0;
 			bottom: 0;
 			width: $b;
 			height: $b;
+			@include glow(bottom, bottom, 45deg, 60deg);
+			@include glow-side($b, left, 20deg, 180deg);
 		}
 		&#pic-front-3 {
 			bottom: 0;
 			left: 0;
 			width: $a;
 			height: $b;
+			@include glow(bottom, bottom, 45deg, 60deg);
+			@include glow-side($b, right, 20deg, 180deg);
 		}
 	}
 }
