@@ -41,6 +41,33 @@ $rotateX-deg: -33deg;
 	width: $canvas-width;
 	height: $canvas-width;
 	background-color: $bg-color;
+	@mixin glow($position, $direction) {
+		&::before{
+			content:'';
+			display: block;
+			position: absolute;
+			@if $position == top { top: 100%; }
+			@if $position == bottom { top: 0; }
+			background: linear-gradient(to $direction, yellow, transparent);
+			width: 100%;
+			height: 200px;
+			transform-origin: 0 0;
+			transform: rotateX(137deg) skewX(41deg);
+		}
+	}
+	@mixin glow-side($width, $position, $skewX) {
+		&::after{
+			content:'';
+			display: block;
+			position: absolute;
+			@if $position == right { left: 100%; }
+			background: linear-gradient(to bottom, yellow, transparent);
+			width: $width;
+			height: 200px;
+			transform-origin: 0 0;
+			transform: rotate(90deg) rotateX(135deg) skewX($skewX);
+		}
+	}
 	.pic {
 		position: absolute;
 		background-color: $color;
@@ -49,38 +76,24 @@ $rotateX-deg: -33deg;
 			top: 0;
 			width: $a;
 			height: $b;
+			@include glow(top, bottom)
+			@include glow-side($b, right, -45deg);
 		}
 		&#pic-top-2 {
 			right: 0;
 			top: 0;
 			width: $b;
 			height: $b;
-			&::before{
-				display: block;
-				position: absolute;
-				bottom: -52%;
-				content:'';
-				background: linear-gradient(to bottom, yellow, transparent);
-				width: 100%;
-				height: 120px;
-				transform-origin: 0 0;
-				transform: rotateX(137deg) skewX(41deg);
-			}
+			@include glow(top, bottom);
+			@include glow-side($b, left, -45deg);
 		}
 		&#pic-top-3 {
 			bottom: 0;
 			right: 0;
 			width: $b;
 			height: $a;
-			&::before{
-				display: block;
-				content:'';
-				background: linear-gradient(to bottom, yellow, transparent);
-				width: 100%;
-				height: 120px;
-				transform-origin: 0 0;
-				transform: rotateX(137deg) skewX(41deg);
-			}
+			@include glow(bottom, bottom);
+			@include glow-side($a, left, -30deg);
 		}
 		&#pic-right-1 {
 			left: 0;
