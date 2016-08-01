@@ -10,6 +10,7 @@ $b: $canvas-width * 0.52 * $scale;
 $rotateX-deg: -33deg;
 $glow-height: 100px;
 $glow-duration: 1.5s;
+$glow-color: rgba(255,255,0,1);
 
 #daocloud-logo {
 	position: absolute;
@@ -50,34 +51,34 @@ $glow-duration: 1.5s;
 			opacity: 1;
 		}
 	}
-	@mixin glow($position, $direction) {
+	@mixin glow($position, $direction, $skewX, $rotateX) {
 		&::before{
 			content:'';
 			display: block;
 			position: absolute;
 			@if $position == top { top: 100%; }
 			@if $position == bottom { top: 0; }
-			background: linear-gradient(to $direction, yellow, transparent);
+			background: linear-gradient(to $direction, $glow-color, transparent);
 			width: 100%;
 			height: $glow-height;
 			transform-origin: 0 0;
 			animation: $glow-duration breath linear infinite alternate;
-			transform: rotateX(137deg) skewX(41deg);
+			transform: rotateX($rotateX) skewX($skewX);
 
 		}
 	}
-	@mixin glow-side($width, $position, $skewX) {
+	@mixin glow-side($width, $position, $skewX, $rotateX) {
 		&::after{
 			content:'';
 			display: block;
 			position: absolute;
 			@if $position == right { left: 100%; }
-			background: linear-gradient(to bottom, yellow, transparent);
+			background: linear-gradient(to bottom, $glow-color, transparent);
 			width: $width;
 			height: $glow-height;
 			transform-origin: 0 0;
 			animation: $glow-duration breath linear infinite alternate;
-			transform: rotate(90deg) rotateX(135deg) skewX($skewX);
+			transform: rotate(90deg) rotateX($rotateX) skewX($skewX);
 		}
 	}
 	.pic {
@@ -88,30 +89,32 @@ $glow-duration: 1.5s;
 			top: 0;
 			width: $a;
 			height: $b;
-			@include glow(top, bottom)
-			@include glow-side($b, right, -45deg);
+			@include glow(top, bottom, 30deg, 135deg)
+			@include glow-side($b, right, -45deg, 135deg);
 		}
 		&#pic-top-2 {
 			right: 0;
 			top: 0;
 			width: $b;
 			height: $b;
-			@include glow(top, bottom);
-			@include glow-side($b, left, -45deg);
+			@include glow(top, bottom, 45deg, 135deg);
+			@include glow-side($b, left, -45deg, 135deg);
 		}
 		&#pic-top-3 {
 			bottom: 0;
 			right: 0;
 			width: $b;
 			height: $a;
-			@include glow(bottom, bottom);
-			@include glow-side($a, left, -30deg);
+			@include glow(bottom, bottom, 45deg, 135deg);
+			@include glow-side($a, left, -30deg, 135deg);
 		}
 		&#pic-right-1 {
 			left: 0;
 			top: 0;
 			width: $b;
 			height: $a;
+			@include glow(top, bottom, -45deg, 60deg);
+			@include glow-side($a, right, 20deg, 0deg);
 		}
 		&#pic-right-2 {
 			left: 0;
