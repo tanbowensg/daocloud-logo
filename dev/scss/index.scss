@@ -1,3 +1,5 @@
+@import "./grid.scss";
+
 $color: #0fd15d;
 $bg-color: white;
 $scale: 1;
@@ -5,18 +7,7 @@ $grid-border-width: 2px;
 $canvas-width: (300px - $grid-border-width) * $scale;
 $a: $canvas-width * 0.31 * $scale;
 $b: $canvas-width * 0.52 * $scale;
-
 $rotateX-deg: -33deg;
-
-body {
-	background: #58a;
-	background-image: linear-gradient(white $grid-border-width, transparent 0),
-		linear-gradient(90deg, white $grid-border-width, transparent 0),
-		linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
-		linear-gradient(90deg, hsla(0,0%,100%,.3) 1px, transparent 0);
-	background-size: 50px 50px, 50px 50px,
-	10px 10px, 10px 10px;
-}
 
 #daocloud-logo {
 	position: absolute;
