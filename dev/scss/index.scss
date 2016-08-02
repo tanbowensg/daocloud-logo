@@ -8,7 +8,7 @@ $canvas-width: (300px - $grid-border-width) * $scale;
 $a: $canvas-width * 0.31 * $scale;
 $b: $canvas-width * 0.52 * $scale;
 $rotateX-deg: -33deg;
-$glow-height: 150px;
+$glow-height: 70px;
 $glow-duration: 3s;
 $glow-color: rgba(255,255,0,0.7);
 
