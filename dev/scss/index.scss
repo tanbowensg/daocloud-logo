@@ -41,8 +41,8 @@ body {
 	width: $canvas-width;
 	height: $canvas-width;
 	transform-style: preserve-3d;
-	transform: rotateX($rotateX-deg) rotateY(45deg);
-	// animation: rotate 2s ease-in infinite;
+	// transform: rotateX($rotateX-deg) rotateY(45deg);
+	animation: rotate 5s ease-in infinite alternate;
 }
 
 .side {
@@ -185,6 +185,6 @@ body {
 }
 
 @keyframes rotate {
-	from { transform: rotateY(45deg) rotateX($rotateX-deg)}
-	to { transform: rotateY(45deg) rotateX($rotateX-deg)}
+	from { transform: rotateX($rotateX-deg) rotateY(45deg)}
+	to { transform: rotateX($rotateX-deg) rotateY(225deg)}
 }
